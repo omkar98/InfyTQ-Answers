@@ -1,0 +1,11 @@
+Customer:
+Attributes:customer_name, bill_amount
+Methods: purchases(),pays_bill(amount)
+
+Item:
+Attributes: item_id, description, price_per_unit
+Methods:
+
+Employee:
+Attributes: designation, emp_name
+Methods:

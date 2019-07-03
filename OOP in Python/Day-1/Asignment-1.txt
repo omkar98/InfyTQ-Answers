@@ -1,0 +1,1 @@
+Customer, Item and Employee will be objects.
