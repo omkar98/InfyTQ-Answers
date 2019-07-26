@@ -1,6 +1,7 @@
-#DSA-Assgn-11
+#DSA-Assgn-14
 class Queue:
     def __init__(self,max_size):
+
         self.__max_size=max_size
         self.__elements=[None]*self.__max_size
         self.__rear=-1
@@ -50,33 +51,24 @@ class Queue:
         msg="Queue data(Front to Rear): "+msg
         return msg
 
-def merge_queue(queue1,queue2):
-    queue3=Queue(queue1.get_max_size()+queue2.get_max_size())
-    l = queue1.get_max_size()+queue2.get_max_size()
-    print(l)
-    for i in range(l):
-        if not queue1.is_empty():
-            queue3.enqueue(queue1.dequeue())
-        if not queue2.is_empty():
-            queue3.enqueue(queue2.dequeue())
-    merged_queue=queue3
-    return merged_queue
+def check_numbers(number_queue):
+    solution_queue1=Queue(5)
+    while(not number_queue.is_empty()):
+        status=0
+        element=number_queue.dequeue()
+        for i in range(1,11):
+            if element%i!=0:
+                status=1
+                break
+        if status==0:
+            solution_queue1.enqueue(element)
+    return solution_queue1
 
-#Enqueue different values to both the queues and test your program
-
-queue1=Queue(3)
-queue2=Queue(6)
-queue1.enqueue(3)
-queue1.enqueue(6)
-queue1.enqueue(8)
-queue2.enqueue('b')
-queue2.enqueue('y')
-queue2.enqueue('u')
-queue2.enqueue('t')
-queue2.enqueue('r')
-queue2.enqueue('o')
-
-merged_queue=merge_queue(queue1, queue2)
-print("The elements in the merged queue are:")
-merged_queue.display()
-                                                    
+#Add different values to the queue and test your program
+number_queue=Queue(5)
+number_queue.enqueue(13983)
+number_queue.enqueue(10080)
+number_queue.enqueue(7113)
+number_queue.enqueue(2520)
+number_queue.enqueue(2500)
+print(check_numbers(number_queue))
