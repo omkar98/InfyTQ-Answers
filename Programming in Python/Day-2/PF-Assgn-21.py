@@ -20,4 +20,4 @@ def generate_next_date(day,month,year):
     print(day,"-",month,"-",year)
 
 
-generate_next_date(30,2,2000)
+generate_next_date(28,2,2000)
