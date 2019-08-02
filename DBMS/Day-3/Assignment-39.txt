@@ -1,0 +1,1 @@
+SELECT designation, salary FROM EmpDetails WHERE designation IN ('Manager', 'Billing Staff') AND salary BETWEEN 2500 AND 5000
