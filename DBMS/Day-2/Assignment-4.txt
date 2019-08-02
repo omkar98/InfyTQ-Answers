@@ -1,0 +1,9 @@
+CREATE TABLE Article(
+  ArCode CHAR(5) CONSTRAINT arcode_article_pk PRIMARY KEY,
+  CHECK(ArCode LIKE 'A%'),
+  ArName VARCHAR2(30) CONSTRAINT article_name NOT NULL,
+  Rate NUMBER(8,2),
+  Quantity NUMBER(4) DEFAULT 0,
+  CHECK(Quantity >=0),
+  Class CHAR(1) CONSTRAINT Artice_class_ch CHECK(Class IN('A', 'B', 'C'))
+)

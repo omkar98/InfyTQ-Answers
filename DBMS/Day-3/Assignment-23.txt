@@ -1,0 +1,1 @@
+SELECT ROId, Location FROM RetailOutlet WHERE Managerid IS NULL

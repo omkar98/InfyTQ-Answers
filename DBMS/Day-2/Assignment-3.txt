@@ -1,0 +1,1 @@
+ALTER TABLE Shopper MODIFY MobileNo VARCHAR2(15)

@@ -1,0 +1,8 @@
+CREATE TABLE Store(
+  Name VARCHAR2(20) PRIMARY KEY,
+  Location VARCHAR2(30) NOT NULL,
+  ManagerName VARCHAR2(30) UNIQUE
+)
+
+You can also check the schema of the table using the following commandl:
+describe Store

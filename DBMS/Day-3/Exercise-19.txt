@@ -1,0 +1,1 @@
+UPDATE Product SET PRICE=50 WHERE PDESC='Trouser' AND CATEGORY='Apparel'

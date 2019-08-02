@@ -1,0 +1,10 @@
+Method - 1: 
+SELECT * FROM Quotation WHERE QSTATUS IN ('Rejected','Closed')
+
+OR
+Method - 2:
+SELECT * FROM Quotation WHERE QSTATUS <> 'Accepted'
+
+OR
+Method - 3:
+SELECT * FROM Quotation WHERE QSTATUS='Rejected' OR QSTATUS='Closed'

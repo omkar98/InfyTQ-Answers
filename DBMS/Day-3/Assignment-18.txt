@@ -1,0 +1,7 @@
+INSERT INTO Bill
+VALUES
+(1001, 'Loyal World', 101, 'A1001', 1000, '20-OCT-15', 2)
+;
+
+Here Article Code - 'A1002' is not present in Article Table. 
+Hence we get Constraint Error - Parent Key not found.

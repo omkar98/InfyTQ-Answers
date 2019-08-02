@@ -1,0 +1,2 @@
+INSERT INTO Article VALUES
+('A1002','Keyboard',1000,10,'B')

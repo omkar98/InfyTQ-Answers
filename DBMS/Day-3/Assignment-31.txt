@@ -1,0 +1,1 @@
+SELECT orderid, quotationid, status, pymtdate FROM Orders WHERE pymtdate IS NULL

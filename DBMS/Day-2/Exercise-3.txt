@@ -1,0 +1,5 @@
+CREATE TABLE Player (
+PId INTEGER CONSTRAINT player_pid_pk PRIMARY KEY,
+PName VARCHAR2(20) CONSTRAINT player_pname NOT NULL,
+Ranking INTEGER
+)

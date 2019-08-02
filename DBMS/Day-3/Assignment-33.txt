@@ -1,0 +1,6 @@
+SELECT 
+  EMPID,
+  Salary AS "Current Salary", 
+  Salary*1.10 AS "New Salary", 
+  Salary*0.1 AS "Incremented Amount" 
+FROM EmpDetails

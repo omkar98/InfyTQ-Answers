@@ -1,0 +1,1 @@
+SELECT OrderId, QuotationId, Status FROM Orders WHERE OrderDate BETWEEN '1-DEC-2014' AND '1-JAN-2015'

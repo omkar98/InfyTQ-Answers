@@ -1,0 +1,1 @@
+SELECT Prodid, price, category from Product

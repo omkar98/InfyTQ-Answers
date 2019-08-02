@@ -1,0 +1,2 @@
+INSERT INTO Product VALUES 
+(110, 'Bat', 50, 'Sports', NULL)

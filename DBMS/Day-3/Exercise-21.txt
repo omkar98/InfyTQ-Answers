@@ -1,0 +1,1 @@
+DELETE FROM SaleDetail WHERE SaleId = 1004

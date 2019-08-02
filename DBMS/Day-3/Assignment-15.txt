@@ -1,0 +1,13 @@
+Actual Answer should be:
+INSERT INTO Shopper
+(ShopperId, ShopperName, Gender, MobileNo, Address) 
+VALUES 
+(101, 'Mark Jane', 'M', 1234567890, 'Allen Street, New York')
+
+But we get a 'Check Constaint' Error:
+Check can be applied on Gender, hence we change its data.
+INSERT INTO Shopper
+(ShopperId, ShopperName, Gender, MobileNo, Address) 
+VALUES 
+(101, 'Mark Jane', 'Male', 1234567890, 'Allen Street, New York')
+

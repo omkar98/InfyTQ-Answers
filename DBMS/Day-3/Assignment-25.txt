@@ -1,0 +1,18 @@
+Method 1:
+Here, output matches but it has Logical Errors
+
+SELECT ItemCode, Descr, Price FROM Item WHERE 
+Descr LIKE '%Shirt%' 
+OR 
+Descr LIKE '%Skirt%' 
+AND
+Category='B' 
+
+Method - 2:
+Matches Exactly
+Reason: This is an optimized query because we are searching from a small list of items filtered using Category first and then Descr.
+SELECT ItemCode, Descr, Price FROM Item WHERE 
+Category='B' AND
+Descr LIKE '%Shirt%' 
+OR
+Descr LIKE '%Skirt%'  

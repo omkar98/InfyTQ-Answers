@@ -1,0 +1,2 @@
+INSERT INTO Address VALUES
+(350,'Electronics City','Mysore',570018,'Karnataka')
