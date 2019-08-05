@@ -1,0 +1,4 @@
+SELECT COUNT(SALEID) SALE_COUNT FROM Sale WHERE  MONTHS_BETWEEN(SYSDATE, SLDATE)<=60
+
+We consider 60 because there are no rows that has value for the last 40 months starting from 2019.
+Will work as required if the current year had been 2017-2018.

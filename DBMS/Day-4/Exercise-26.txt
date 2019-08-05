@@ -1,0 +1,3 @@
+SELECT NVL(PDESC, 'No Description') PDESC, DISCOUNT FROM Product
+
+There is no Expected Result given for the question.

@@ -1,0 +1,6 @@
+Both the queries are same, but the resultant outputs(order) is different.
+Required Output:
+SELECT TO_CHAR(SLDATE, 'Month') AS MONTH, COUNT(*) AS NUMBER_SALE FROM SALE GROUP BY TO_CHAR(SLDATE, 'Month') ORDER BY COUNT(*) DESC
+
+Output values are same but order is different:
+SELECT TO_CHAR(SLDATE, 'MONTH') AS MONTH, COUNT(*) AS NUMBER_SALE FROM SALE GROUP BY TO_CHAR(SLDATE, 'MONTH') ORDER BY COUNT(*) DESC

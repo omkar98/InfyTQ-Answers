@@ -1,0 +1,1 @@
+SELECT EMPID, SALARY "Current Salary", ROUND(SALARY*1.2,2) "New Salary", SALARY*0.2 "Incremented Amount" FROM EmpDetails WHERE Designation='Manager'
