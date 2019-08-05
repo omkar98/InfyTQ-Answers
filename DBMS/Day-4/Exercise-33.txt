@@ -1,0 +1,1 @@
+SELECT ROUND(AVG(PRICE), 2) "Avg", MIN(PRICE) "Min", MAX(PRICE) "Max", COUNT(PRODID) "Total" FROM Product

@@ -1,0 +1,9 @@
+SELECT EMPID, EMPNAME, SALARY,
+CASE DESIGNATION
+WHEN 'Administrator' THEN SALARY * 1.10
+WHEN 'Manager' THEN SALARY * 1.05
+WHEN 'Billing Staff' THEN SALARY * 1.2
+WHEN 'Security' THEN SALARY * 1.25
+ELSE SALARY * 1.02
+END "increased salary"
+FROM EmpDetails

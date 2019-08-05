@@ -1,0 +1,5 @@
+METHOD 1:
+SELECT SNAME||' is from ' ||Location AS "RESULT" FROM SalesMan
+
+METHOD 2:
+SELECT CONCAT(SNAME,CONCAT(' is from ', LOCATION)) "RESULT" FROM SalesMan
