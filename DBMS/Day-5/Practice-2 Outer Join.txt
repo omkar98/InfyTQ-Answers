@@ -1,0 +1,15 @@
+QUESTION: Display computer id, make, model of computers along with the id of the employee it is assigned to. Display ‘Not assigned’ against id column if the computer is not assigned to anyone.
+
+Practice: Outer Join
+Method - 1:
+
+SELECT C.COMPID, C.MAKE, C.MODEL, 
+CASE
+WHEN E.ID IS NULL THEN 'Not assigned'
+ELSE TO_CHAR(E.ID)
+END ID
+FROM COMPUTER C LEFT OUTER JOIN EMPLOYEE E
+ON C.COMPID=E.COMPID
+
+Method 2:
+SELECT C.CompId, C.Make, C.Model, NVL(TO_CHAR(E.Id), 'Not assigned') AS ID FROM Employee E RIGHT JOIN Computer C ON  C.CompId = E.CompId;

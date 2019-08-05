@@ -1,0 +1,11 @@
+Another Alternative to Practice Question of Self Join:
+
+Method - 1:
+SELECT E.ID, E.ENAME
+FROM EMPLOYEE E INNER JOIN EMPLOYEE D
+ON E.DEPT=D.DEPT AND D.ENAME LIKE '%Jack%' AND E.ENAME NOT LIKE '%Jack%';
+
+Method-2:
+SELECT E.Id, E.ENAME 
+FROM Employee E INNER JOIN Employee J 
+ON E.Dept = J.Dept AND E.Id <> J.Id AND J.ENAME='Jack Abraham';

@@ -1,0 +1,4 @@
+SELECT S1.SALEID, S1.SLDATE
+FROM Sale S1, Salesman S2
+WHERE S1.SID = S2.SID
+AND S2.Location = 'London'

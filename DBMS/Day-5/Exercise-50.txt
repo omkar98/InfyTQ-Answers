@@ -1,0 +1,37 @@
+Loved this Exercise! Found this the most challenging and interesting Exercise in SQL till now.
+Will be a lot useful for Project. 
+This exercise has given good revision of my basics in JOINS, GROUP BY Function.
+Estimated Time is 8 mins, however took 45 mins to resolve!
+
+STEP 1: Fetch all the SaleId's of individual Salesman
+SELECT S1.SID, S1.SNAME, S2.SALEID FROM Sale S2 INNER JOIN Salesman S1 ON S1.SID=s2.SID
+
+STEP 2: Fetch all the ProductId's of individual SaleId's
+SELECT S1.SID, S1.SNAME, S2.SALEID, S3.PRODID FROM SALE S2 INNER JOIN SALESMAN S1 ON S1.SID=s2.SID INNER JOIN SALEDETAIL S3 ON S2.SALEID=S3.SALEID ORDER BY SNAME DESC
+
+STEP 3: Fetch the prices of all the Product Ids Obtained in Step2
+SELECT S1.SID, S1.SNAME, S2.SALEID, S3.PRODID, P1.PRICE FROM SALE S2 INNER JOIN SALESMAN S1 ON S1.SID=s2.SID INNER JOIN SALEDETAIL S3 ON S2.SALEID=S3.SALEID INNER JOIN PRODUCT P1 ON S3.PRODID = P1.PRODID ORDER BY SNAME DESC
+
+STEP 4: Group the data corresponding to each Salesman and calculate TAMOUNT using PRICE * QUANTITY
+NOTE:
+  We get the 'Not a group by function' if we group the data only by using S1.SID or S1.NAME
+  We need to use all the columns present in the SELECT Statement.
+  Reference: https://stackoverflow.com/questions/15870331/inner-join-with-group-by-expression-in-oracle-sql
+
+SELECT S1.SID, S1.SNAME, SUM(P1.PRICE*S3.QUANTITY) TAMOUNT 
+FROM SALE S2 INNER JOIN SALESMAN S1 ON S1.SID=s2.SID 
+   	INNER JOIN SALEDETAIL S3 ON S2.SALEID=S3.SALEID 
+   		INNER JOIN PRODUCT P1 ON S3.PRODID = P1.PRODID 
+   GROUP BY S1.SID, S1.SNAME 
+   ORDER BY SUM(P1.PRICE*S3.QUANTITY) DESC
+
+STEP 5: Finally calculate Discount:
+
+FINAL QUERY:
+
+SELECT S1.SID, S1.SNAME, SUM(P1.PRICE*S3.QUANTITY) TAMOUNT, SUM((P1.PRICE*S3.QUANTITY)*P1.DISCOUNT/100) TDISCOUNT
+FROM SALE S2 INNER JOIN SALESMAN S1 ON S1.SID=s2.SID 
+   	INNER JOIN SALEDETAIL S3 ON S2.SALEID=S3.SALEID 
+   		INNER JOIN PRODUCT P1 ON S3.PRODID = P1.PRODID 
+   GROUP BY S1.SID, S1.SNAME 
+   ORDER BY SUM(P1.PRICE*S3.QUANTITY) DESC
