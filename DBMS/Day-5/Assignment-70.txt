@@ -1,0 +1,15 @@
+Step 1: Fetch all the employee no's (including NULL) an their vehicle ids
+SELECT E.EMPNO, EV.VEHICLEID FROM EMP E
+LEFT OUTER JOIN EMPVEHICLE EV
+ON E.EMPNO = EV.EMPNO
+
+Step 2: fetch all the vehicle names from the vehcile no's
+SELECT E.ENAME, V.VEHICLENAME FROM EMP E
+LEFT OUTER JOIN EMPVEHICLE EV
+ON E.EMPNO = EV.EMPNO 
+LEFT OUTER JOIN VEHICLE V
+ON EV.VEHICLEID = V.VEHICLEID
+
+ 
+
+ 
