@@ -1,0 +1,8 @@
+SELECT C.CUSTNAME, P.BILLAMOUNT
+FROM CUSTOMER C, PURCHASEBILL P
+WHERE C.CUSTID=P.CUSTID
+AND P.BILLAMOUNT>5000
+
+Didnot solve Optional Assignments from 86 onwards.
+The assignments seem similar to the previous mandatory exercises and assignments, 
+hence skipped them.

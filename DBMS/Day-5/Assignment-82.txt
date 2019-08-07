@@ -1,0 +1,6 @@
+Given:
+  1) details of retailoutlet should be displayed even if no employee is working in it -> indicating Left outer join 
+
+SELECT  E.EMPID, E.EMPNAME, R.ROID, R.LOCATION
+FROM RETAILOUTLET R LEFT OUTER JOIN EMPDETAILS E
+ON R.ROID=E.WORKSIN

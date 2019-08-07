@@ -1,0 +1,13 @@
+Important points to note:
+Given:
+  1) For each item -> requires left outer join
+  2) Specific Outlet ONLY -> use AND Operator
+  3) If no stock display N.A. -> requires NVL()
+
+SELECT I.ITEMCODE, I.DESCR, NVL(TO_CHAR(R.QTYAVAILABLE), 'N.A.') AS "QTYAVAILABLE"
+FROM ITEM I LEFT OUTER JOIN RETAILSTOCK R
+ON I.ITEMCODE=R.ITEMCODE AND R.ROID='R1001'
+
+NVL Function doesnot accept data of different data types.
+R.QTYAVAILABLE is NUMBER while 'N.A.' is char datatype.
+Hence we convert using TO_CHAR(R.QTYAVAILABLE) and use NVL(TO_CHAR(R.QTYAVAILABLE), 'N.A.')

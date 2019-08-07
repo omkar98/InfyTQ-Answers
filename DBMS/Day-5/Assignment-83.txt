@@ -1,0 +1,14 @@
+Given,
+  1) ..of those employees who work in same retail outlet where George works... -> Self join
+  2) Do not display George in result -> operator: <>
+
+SELECT E1.EMPNAME, E1.DESIGNATION, E1.EMAILID
+FROM EMPDETAILS E1 INNER JOIN EMPDETAILS E2
+ON E1.WORKSIN=E2.WORKSIN
+WHERE E2.EMPNAME='George'
+AND E1.EMPNAME <> 'George'
+
+E1 should be the final output table that doesnot contain the name 'George'
+To fetch the retail outlet where George works we take another similar table E2 with only one tuple of George
+and match it with the worksin with other employees.
+
