@@ -1,0 +1,10 @@
+Step 1: Find the minimum quantity (which will be a single row)
+SELECT MIN(SUM(QUANTITY)) FROM SALEDETAIL GROUP BY PRODID)
+
+Step 2: Find the product Ids that have minimum quantity:
+SELECT PRODID FROM SALEDETAIL GROUP BY PRODID HAVING SUM(QUANTITY) = (SELECT MIN(SUM(QUANTITY)) FROM SALEDETAIL GROUP BY PRODID)
+
+Step 3: Using the prod ids fetched in the previous step,
+relate these prod ids with the prod ids from the product table 
+and display the description:
+SELECT PRODID, PDESC FROM PRODUCT WHERE PRODID IN (SELECT PRODID FROM SALEDETAIL GROUP BY PRODID HAVING SUM(QUANTITY) = (SELECT MIN(SUM(QUANTITY)) FROM SALEDETAIL GROUP BY PRODID))

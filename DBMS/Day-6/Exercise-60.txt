@@ -1,0 +1,8 @@
+
+SELECT SNAME FROM SALESMAN WHERE SID IN (SELECT SID FROM Sale GROUP BY SID HAVING COUNT(SALEID)>=2)
+
+Note: If we used equality operator(=)
+instead of IN we get logical error,
+Reason being, the inner query can return multiple rows,
+which is supported by IN operators, but not by '=' 
+operator

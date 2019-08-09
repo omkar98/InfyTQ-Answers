@@ -1,0 +1,31 @@
+Display SId, SName and Location -> SELECT S.SID, S.SNAME, S.LOCATION
+of those salesmen -> FROM SALESMAN S WHERE S.SID IN ()
+who have total sales amount -> SUM(individual salesamount)
+greater than -> '>'
+average total sales amount ->  SUM(individual-salesamount)/SUM(total-quantity)
+of their location -> location-wise 'GROUP BY location'
+calculated per salesman. 
+
+SELECT PRODID FROM PRODUCT P, SALEDETAIL S1, SALE S2 WHERE SUM(individual salesamount)>SUM(individual-salesamount)/SUM(total-quantity)
+
+_____________________________________________________________________
+SELECT SM.SID, SNAME, LOCATION FROM SALESMAN SM
+INNER JOIN SALE S ON S.SID = SM.SID GROUP BY SM.SID, SNAME, LOCATION
+HAVING Sum(AMOUNT)>
+(SELECT MIN(SUM(AMOUNT)) FROM SALE SI INNER JOIN SALESMAN SMI
+ON SI.SID = SMI.SID GROUP BY SI.SID) + 2000;
+_____________________________________________________________________
+SELECT SM.SID, SNAME FROM SALESMAN SM
+INNER JOIN SALE S ON S.SID = SM.SID
+WHERE LOCATION = 'London'
+GROUP BY SM.SID, SNAME
+HAVING SUM(AMOUNT) <
+(SELECT AVG(SUM(AMOUNT)) FROM SALE  GROUP BY SID);
+___    _____    _____   _____   _______   _______  _______ ____
+Calculates the average amount of sales done based on each salesman's total sale amount. 
+Displays SID and SNAME of salesmen whose total amount of sale is lesser than the average 
+amount of sale calculated and who belongs to city 'London'.
+
+_______
+Step 1: Select every in
+SELECT S.SID, SUM((S1.Quantity*P.PRICE)*((100-P.DISCOUNT)/100)) Totalquantity FROM SALE S,SALEDETAIL S1, PRODUCT P WHERE S1.SALEID=S.SALEID AND S1.PRODID=P.PRODID GROUP BY S.SID ORDER BY S.SID
