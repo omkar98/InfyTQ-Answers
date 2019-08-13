@@ -1,0 +1,18 @@
+Identify purchase bills in which -> Lets assign PURCHASEBILL 'P' table to the outer query
+the bill amount is less than or equal to   -> P.BILLAMOUNT<=
+the average bill amount -> AVG(P1.billamount) (lets assign PURCHASEBILL 'P1' to the inner query)
+of all the items   -> GROUP BY ()
+purchased in the same retail outlet. -> P1.ROID=P.ROID (The ROID which refers to the outer query must be the same as the inner query) 
+					and GROUP BY function must group item prices as per ROID
+
+Display billid and itemcode for the same.
+
+SELECT P.BILLID, P.ITEMCODE 
+FROM PURCHASEBILL P
+WHERE P.BILLAMOUNT<=
+(
+SELECT AVG(P1.BILLAMOUNT)
+FROM PURCHASEBILL P1
+WHERE P1.ROID=P.ROID
+GROUP BY ROID
+)

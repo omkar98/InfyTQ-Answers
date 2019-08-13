@@ -1,0 +1,26 @@
+Lets divide the question:
+
+Identify the supplier who has submitted --> SELECT Q1.SNAME (Outer query : QUOTATION Q1)
+the quotation for an item --> 
+with the quoted price, less than --> Q1.QUOTEDPRICE<
+the maximum quoted price submitted by all other suppliers, 
+	--> MAX(Q2.QUOTEDPRICE)(inner query: QUOTATION Q2)
+		GROUP BY(Q2.ITEMCODE)
+for the same item.  --> Q2.ITEMCODE = Q1.ITEMCODE
+
+Display sname, itemcode and item description for the identified supplier. 
+Do not display duplicate records. --> USe DISTINCT
+
+
+SELECT DISTINCT Q1.SNAME, Q1.ITEMCODE, I.DESCR
+FROM QUOTATION Q1, ITEM I
+WHERE Q1.ITEMCODE=I.ITEMCODE
+AND Q1.QUOTEDPRICE<
+(
+SELECT MAX(Q2.QUOTEDPRICE)
+FROM QUOTATION Q2
+WHERE Q2.ITEMCODE=Q1.ITEMCODE
+AND Q2.SNAME<>Q1.SNAME
+GROUP BY (Q2.ITEMCODE)
+)
+	

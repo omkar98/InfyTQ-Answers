@@ -1,0 +1,7 @@
+Step 1: Find max salary
+Step 2: Display his/her details
+
+SELECT ENAME FROM EMP WHERE SAL=
+	(
+		SELECT MAX(SAL) FROM EMP
+	)

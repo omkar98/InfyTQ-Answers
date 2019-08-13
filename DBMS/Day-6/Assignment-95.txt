@@ -1,0 +1,31 @@
+The management would like to know the details of the items 
+which has maximum quoted price 
+amongst the quotations that have status as 'Closed' or 'Rejected'. 
+
+Display itemcode and descr of those items.
+
+Filter Closed and Rejected Quotations.
+SELECT * FROM QUOTATION WHERE QSTATUS IN ('Rejected','Closed')
+
+Find maximum price of those quotations.
+SELECT MAX(QUOTEDPRICE) MAXI FROM QUOTATION WHERE QSTATUS IN ('Rejected','Closed')
+
+Fetch the itemcode of the quoation.
+SELECT ITEMCODE FROM QUOTATION WHERE QUOTEDPRICE= (SELECT MAX(QUOTEDPRICE) MAXI FROM QUOTATION WHERE QSTATUS IN ('Rejected','Closed'))
+
+Display the details of the fetched item.
+SELECT ITEMCODE, DESCR FROM ITEM WHERE ITEMCODE IN (SELECT DISTINCT ITEMCODE FROM QUOTATION WHERE QUOTEDPRICE = (SELECT MAX(QUOTEDPRICE) MAXI FROM QUOTATION WHERE QSTATUS IN ('Rejected','Closed')))
+
+However,  the following query doesnt show logical error:
+
+SELECT ITEMCODE, DESCR FROM ITEM WHERE ITEMCODE IN 
+	(
+	  SELECT DISTINCT ITEMCODE FROM QUOTATION WHERE QUOTEDPRICE = 
+		(
+		  SELECT MAX(QUOTEDPRICE) FROM QUOTATION WHERE QSTATUS IN ('Rejected','Closed')
+		) 
+	  AND QSTATUS IN ('Rejected','Closed')
+	)
+It is important that we also filter the 2nd inner query because max(price) from rejected and closed quotations
+can also be the price for Accepted Quotation. Hence care must be taken that the quoation belongs only
+and only to rejected and closed quotations.

@@ -1,0 +1,30 @@
+Display the customer id and customer name of those customers   --> SELECT C.CUSTID, C.CUSTNAME FROM CUSTOMER C
+who have not purchased at all -> NOT EXISTS
+from any retail outlet. 
+  --> Here we need to have some reference to the retail outlet. 
+      Hence we use the tables Customer and PurchaseBill
+      to identify which customers have purchased an item from a retail outlet.
+Hence, we get
+
+___________________________________
+METHOD-1: 
+SELECT C.CUSTID, C.CUSTNAME 
+FROM CUSTOMER C
+WHERE NOT EXISTS 
+(
+	SELECT CUSTID 	
+	FROM PURCHASEBILL P
+	WHERE C.CUSTID=P.CUSTID
+)
+___________________________________
+METHOD-2:
+SELECT C.CUSTID, C.CUSTNAME 
+FROM CUSTOMER C
+WHERE C.CUSTID NOT IN  
+(
+	SELECT CUSTID 
+	FROM PURCHASEBILL P
+	WHERE C.CUSTID=P.CUSTID
+)
+___________________________________
+

@@ -1,0 +1,13 @@
+The payroll department requires the details of those employees
+who are getting the highest salary --> MAX(SAL) 
+in each designation. -> Outer Query's Designation must match the inner query
+Display empid, empname, designation and salary as per the given requirement.
+
+SELECT E1.EMPID, E1.EMPNAME, E1.DESIGNATION, E1.SALARY
+FROM EMPDETAILS E1
+WHERE E1.SALARY =
+(
+SELECT MAX(SALARY)
+FROM EMPDETAILS E2
+WHERE E2.DESIGNATION=E1.DESIGNATION
+)
