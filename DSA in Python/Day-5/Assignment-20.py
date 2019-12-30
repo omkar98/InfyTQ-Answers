@@ -12,7 +12,7 @@ class Item:
     def get_published_year(self):
         return self.__published_year
     def __str__(self):
-        pass
+        return("{} by {} published in {}".format(self.__item_name, self.__author_name, self.__published_year))
 #Implement Library class here
 class Library:
     def __init__(self, item_list):
@@ -73,5 +73,3 @@ print()
 print("The items sorted based on the increasing order of their published year:")
 for item in library.get_item_list():
     print(item.get_author_name() +" "+ str(item.get_published_year()))
-
-
