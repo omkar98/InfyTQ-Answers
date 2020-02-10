@@ -1,7 +1,8 @@
 # InfyTQ-Solutions
 ######  Updates/Announcements:
 
-> Glad to have such a huge crowd on this repository! Would request you to please update me any changes/incorrect/updations by either geneating a pull-request or mail me at edu.omkar@gmail.com
+> Glad to have such a huge crowd on this repository! 
+> Uploaded my Data Structures File in this Repo. It was amazingly useful for quick revision during my Power Programmer Interview Preparation. 
 
    
 
