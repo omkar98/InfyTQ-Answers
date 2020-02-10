@@ -1,7 +1,6 @@
 # InfyTQ-Solutions
 ######  Updates/Announcements:
 
-> Glad to have such a huge crowd on this repository! 
 > Uploaded my Data Structures File in this Repo. It was amazingly useful for quick revision during my Power Programmer Interview Preparation. 
 
    
