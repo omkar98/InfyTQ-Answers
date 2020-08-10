@@ -1,8 +1,12 @@
-#DSA-Assgn-3
-
 def check_double(list1,list2):
     new_list=[]
-    #write your logic here
+    for i in list1:
+        for j in list2:
+            if j==(2*i):
+                new_list.append(i)
+            else:
+                continue
+    
     return new_list
 
 #Provide different values for the variables and test your program
