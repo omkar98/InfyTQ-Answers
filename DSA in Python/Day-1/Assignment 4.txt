@@ -1,5 +1,7 @@
 #DSA-Assgn-4
 This solution is incomplete. Will complete it later.
+#DSA-Assgn-4
+
 class Player:
     def __init__(self,name,experience):
         self.__name=name
@@ -16,16 +18,25 @@ class Player:
 
 #Implement Game class here
 class Game:
-    def __init__(self, players_list):
-        self.__players_list=players_list
+    
+    def __init__(self,player_list):
+        
+        self.__players_list=player_list
+        
     def sort_players_based_on_experience(self):
-        self.__players_list.sort(key=lambda x:get_experience())
-    def shift_players_to_new_position(self, old_index_position, new_index_position):
-        temp=self.__players_list[new_index_position]
-        self.__players_list[new_index_position]=self.__players_list[old_index_position]
-        self.__players_list[old_index_position]=temp
-    def display_players_details(self):
-        pass
+        self.__players_list.sort(key=lambda x:x.get_experience(),reverse=True)
+    def shift_player_to_new_position (self,old_index_position, new_index_position):
+        self.__players_list.insert(new_index_position,self.__players_list[old_index_position])
+        del [self.__players_list[old_index_position]]
+        
+        
+    def display_player_details(self):
+        for player in self.__players_list:
+            print(player.get_name(),end=" ")
+            print(player.get_experience())
+            
+        
+        
         
 
 player1=Player("Dhoni",15)
@@ -41,4 +52,13 @@ player10=Player("Stuart",7)
 player11=Player("Bhuvneshwar",5)
 #Add different values to the list and test the program
 players_list=[player1,player2,player3,player4,player5,player6,player7,player8,player9,player10,player11]
-#Create object of Game class, invoke the methods and test your program
+#Create object of Game class, invoke the methods and test your program\\
+
+
+g=Game(players_list)
+g.display_player_details()
+g.sort_players_based_on_experience()
+g.shift_player_to_new_position(0,4)
+g.display_player_details()
+
+
