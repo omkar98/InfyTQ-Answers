@@ -1,10 +1,10 @@
 CREATE TABLE Match(
-  MId INTEGER PRIMARY KEY,
-  TId INTEGER REFERENCES Tournament(TournamentId),
-  Player1 INTEGER REFERENCES Player(PlayerId),
-  Player2 INTEGER REFERENCES Player(PlayerId),
+  MId INTEGER,
+  TId INTEGER REFERENCES Tournament(TId), PRIMARY KEY(MId, TId),
+  Player1 INTEGER REFERENCES Player(PId),
+  Player2 INTEGER REFERENCES Player(PId),
   MatchDt DATE NOT NULL,
-  Winner INTEGER REFERENCES Player(PlayerId),
+  Winner INTEGER REFERENCES Player(PId),
   Score VARCHAR2(30) NOT NULL,
   CONSTRAINT playler_id_ck CHECK(Player1 <> Player2)
 )
