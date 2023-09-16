@@ -131,10 +131,8 @@ class Performance:
         self.__children_list.delete(child)
         self.__children_list.insert(child,temp1.get_data())
     def add_new_child(self,child):
-        temp = self.__children_list.get_head()
-        while(temp.get_next()):
-            temp=temp.get_next()
-        self.__children_list.insert(child,temp.get_data())
+        self.__children_list.add(child)
+
 #Implement Performance class here
 child1=Child("Rahul","solo song")
 child2=Child("Sheema","Dance")
